@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Создание объекта data. Рассмотрение примера, в котором свойство объекта в опции data является массивом или объектом.</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <script src="../vue.js"></script>
+  <script type="text/javascript">
+    window.onload = function() {
+      const sample = new Vue({
+        el: '#app', //Привязка через CSS-селектор
+        data: {
+          students: [
+            { name: 'Алексей', age: 15 },
+            { name: 'Андрей', age: 20 }
+          ]
+        }
+      })
+    }
+  </script>
+</head>
+<body>
+  <div id="app">
+    <h2>Список студентов учебного центра:</h2>
+    <ul v-for="person in students">
+      <li>{{person.name}}, {{person.age}} лет.</li>
+    </ul>
+  </div>
+</body>
+</html>

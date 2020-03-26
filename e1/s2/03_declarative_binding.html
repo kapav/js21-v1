@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Декларативная привязка</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="../vue.js"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        const sample = new Vue({
+          el: '#app', //Привязка через CSS-селектор
+          data: {
+            city: "Киев"
+          }
+        })
+      }
+    </script>
+  </head>
+  <body>
+    <p>Декларативная привязка (сырой HTML, директива v-html)</p>
+    <!-- Декларативная привязка создаётся с помощью директив. Директива - предопределённый элемент, сообщающий Vu'ю.js, какие действия необходимо совершить с DOM'ом. Директивы дают возможность мгновенно изменять DOM при изменении значения данных. Встроенные директивы Vu'я.js начинаются с приставки 'v-'. -->
+    <div id="app">
+      <p v-text="city"></p>
+    </div>
+    <script>
+      // const sample = new Vue({
+      //   el: '#app', //Привязка через HTML-элемент
+      //   data: {
+      //     city: "Киев"
+      //   }
+      // })
+    </script>
+  </body>
+</html>

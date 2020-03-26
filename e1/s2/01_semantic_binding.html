@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Семантическая привязка</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <script src="../vue.js"></script>
+  <script type="text/javascript">
+    window.onload = function() {
+      const sample = new Vue({
+        el: '#app', //Привязка через CSS-селектор
+        data: {
+          name: 'Анна'
+        }
+      })
+    }
+  </script>
+</head>
+<body>
+  <p>Пример работы семантической привязки</p>
+  <!-- Интерполяция (вставка) - процесс перехода данных от привязки к значениям данных -->
+  <div id="app">
+    <p>{{name}}</p>
+  </div>
+</body>
+</html>

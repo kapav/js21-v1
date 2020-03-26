@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Привязка к стилям CSS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="../vue.js"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        const growler = new Vue({
+          el: '#app', //Привязка через CSS-селектор
+          data: {
+            name: 'Алексей',
+            colorData: "orange",
+            marginData: "10px",
+            fontData: "16px",
+            firstStyle: {
+              color: 'blue',
+              fontFamily: 'Verdana',
+              textAlign: 'center',
+              border: '2px solid red'
+            },
+            secondStyle: {
+              color: 'green',
+              textAlign: 'right',
+              fontSize: '25px'
+            }
+          }
+        })
+      }
+    </script>
+  </head>
+  <body>
+    <p>Пример, показываюий работу привязки для стилей CSS</p>
+    <div id="app">
+      <!-- Определение значения цвета элемента через привязку стиля -->
+      <h2 v-text="name" v-bind:style="{color: colorData}"></h2>
+      <h2 v-text="name" v-bind:style="{
+        color: colorData,
+        fontSize: fontData,
+        margin: marginData
+      }"></h2>
+      <!-- Получение свойств CSS через объект JS -->
+      <h2 v-text="name" v-bind:style="firstStyle"></h2>
+      <!-- Получение свойств CSS через массив JS -->
+      <p v-text="name" v-bind:style="[firstStyle, secondStyle]"></p>
+      <!-- Использование сокращённого варианта привязки -->
+      <h2 v-text="name" :style="firstStyle"></h2>
+      <!-- Ошибка! Нужно использовать привязку v-bind для атрибутов, а также убирать {{}} в значениях -->
+      <!-- <h2 v-text="name" style="{{firstStyle}}"></h2> -->
+    </div>
+  </body>
+</html>

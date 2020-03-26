@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Добавление экземпляра библиотеки Vue</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <script src="../vue.js"></script>
+  <script type="text/javascript">
+    // window.onload = function() {
+    //   const sample = new Vue({
+    //     el: "#app", //Привязка через CSS-селектор
+    //     data: { x: 10 }
+    //   })
+    // }
+  </script>
+</head>
+<body>
+  <div id="app">
+    <p>Простой текст, который будет виден в окне браузера</p>
+    {{ x }}
+    <br/>
+    <a href="http://stefankrause.net/js-frameworks-benchmark5/webdriver-ts/table.html">Сравнение библиотек</a>
+  </div>
+  <script type="text/javascript">
+     const sample = new Vue({
+       el: document.getElementById('app'), //Привязка через HTML-элемент
+       data: { x: -25 }
+     })
+  </script>
+</body>
+</html>
