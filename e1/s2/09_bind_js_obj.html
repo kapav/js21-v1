@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Привязка к JS-объекту</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <script src="../vue.js"></script>
+  <style>
+    .color {
+      color: blue;
+      background-color: antiquewhite;
+    }
+    .size {
+      font-family: 'Verdana';
+      font-size: 18px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <p>Пример применения стилей с помощью объекта JS</p>
+  <div id="app">
+    <!-- Использование JS-объекта. Имя каждого свойства - название класса. Значение - true/false - добавляет/убирает данный класс с элемента -->
+    <h1 v-text="userName" v-bind:class='{"size": true, "color": true}'></h1>
+    <!-- Динамическое изменение размера элемента -->
+    <h1 v-text="userName" v-bind:class='{"color": flag, "size": true}'></h1>
+  </div>
+  <script type="text/javascript">
+    const sample = new Vue({
+      el: '#app', //Привязка через HTML-элемент
+      data: {
+        userName: 'Гомер',
+        userColor: 'color',
+        userSize: 'size',
+        userStyles: ['color', 'size'],
+        flag: false
+      }
+    })
+  </script>
+</body>
+</html>

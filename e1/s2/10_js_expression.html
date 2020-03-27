@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Выражения (инструкции) JS</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <script src="../vue.js"></script>
+  <style>
+    .colorOrange {
+      color: darkorange;
+      background-color: beige;
+    }
+    .colorLime {
+      color: limegreen;
+      background-color: antiquewhite;
+    }
+  </style>
+</head>
+<body>
+  <p>Пример применения стилей с помощью выражений (инструкций) JS</p>
+  <div id="app">
+    <!-- Динамически изменяя переменную flag, возможно изменить значение заданного стиля элемента -->
+    <h1 v-text="userFirstName" v-bind:class='{"colorOrange": flag, "colorLime": !flag}'></h1>
+    <h1 v-text="userSecondName" v-bind:class='{"colorOrange": !flag, "colorLime": flag}'></h1>
+  </div>
+  <script type="text/javascript">
+    const sample = new Vue({
+      el: '#app', //Привязка через HTML-элемент
+      data: {
+        userFirstName: 'Гомер',
+        userSecondName: 'Геродот',
+        flag: false
+      }
+    })
+  </script>
+</body>
+</html>

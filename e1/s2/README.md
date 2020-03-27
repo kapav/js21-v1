@@ -7,3 +7,6 @@ Vue.js introduction. Binding.
   Binding using v-html directive.
   Attribute binding.
   Binding to CSS styles.
+  Binding to CSS classes.
+  Binding to a JS object.
+  JS expressions.
