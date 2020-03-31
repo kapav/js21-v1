@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Модификатор данных 'number'</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link href="../bootstrap-4.4.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="../vue.js"></script>
+  <script type="text/javascript">
+    window.onload = function() {
+      const app = new Vue({
+        el: '#app', //Привязка через CSS-селектор
+        data: {
+          result: '',
+          resultType: ''
+        },
+        //Отслеживание изменениий в текстовых полях
+        watch: {
+          result: function() {
+            const t = typeof this.result
+            this.resultType = t
+          }
+        }
+      })
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <br />
+    <div id="app">
+      <form>
+        <p>
+          Пример использования модификатора <code>number</code>.
+          <!-- Аналог использования функции parseFloat в JS -->
+          <!-- Результатом будет число, если хотя бы первый введённый символ - числовой. Во всех остальных случаях будет строковый тип -->
+        </p>
+        <div class="form-group">
+          <label for="resultInput" class="form-label">Введите данные:</label>
+          <input v-model.number="result" placeholder="....." id="resultInput" class="form-control">
+          <p class="text-muted">{{ result }}</p>
+          <p class="text-muted">{{ resultType }}</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

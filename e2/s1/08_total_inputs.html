@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Пример использования привязки для элементов input</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link href="../bootstrap-4.4.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="../vue.js"></script>
+  <script type="text/javascript">
+    window.onload = function() {
+      const sample = new Vue({
+        el: '#app', //Привязка через CSS-селектор
+        data: {
+          colorInput: '(nothing)',
+          dateInput: '(undefined)',
+          dateTimeLocalInput: '(undefined)',
+          emailInput: '(undefined)',
+          monthInput: '(undefined)',
+          numberInput: '(undefined)',
+          passwordInput: '(undefined)',
+          rangeInput: 0,
+          telInput: '(nothing)',
+          textInput: '(undefined)',
+          timeInput: '(undefined)',
+          searchInput: '(undefined)',
+          urlInput: '(undefined)',
+          weekInput: '(undefined)'
+       }
+     })
+   }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <br />
+    <p>Пример, показывающий разные типы элемента <code>input</code> в действии.</p>
+    <br />
+    <div id="app">
+      <form>
+        <div class="row">
+          <div class="col-xs-12 col-md-6 col-lg-4">
+            <!-- Тип color -->
+            <div class="form-group row">
+              <label for="colorInputField" class="col-sm-3 col-form-label">Цвет</label>
+              <div class="col-sm-9">
+                <input type="color" id="colorInputField" class="form-control" v-model="colorInput" />
+                <small class="text-mutated">{{ colorInput }}</small>
+              </div>
+            </div>
+            <!-- Тип date -->
+            <div class="form-group row">
+              <label for="dateInputField" class="col-sm-3 col-form-label">Дата</label>
+              <div class="col-sm-9">
+                <input type="date" id="dateInputField" class="form-control" v-model="dateInput" />
+                <small class="text-mutated">{{ dateInput }}</small>
+              </div>
+            </div>
+            <!-- Тип datetime-local -->
+            <div class="form-group row">
+              <label for="dateTimeLocalInputField" class="col-sm-3 col-form-label">Текущая дата и время</label>
+              <div class="col-sm-9">
+                <input type="datetime-local" id="dateTimeLocalInputField" class="form-control" v-model="dateTimeLocalInput" />
+                <small class="text-mutated">{{ dateTimeLocalInput }}</small>
+              </div>
+            </div>
+            <!-- Тип email -->
+            <div class="form-group row">
+              <label for="emailInputField" class="col-sm-3 col-form-label">Электронная почта</label>
+              <div class="col-sm-9">
+                <input type="email" id="monthInputField" class="form-control" v-model="emailInput" />
+                <small class="text-mutated">{{ emailInput }}</small>
+              </div>
+            </div>
+            <!-- Тип month -->
+            <div class="form-group row">
+              <label for="monthInputField" class="col-sm-3 col-form-label">Месяц</label>
+              <div class="col-sm-9">
+                <input type="month" id="monthInputField" class="form-control" v-model="monthInput" />
+                <small class="text-mutated">{{ monthInput }}</small>
+              </div>
+            </div>
+            <!-- Тип number -->
+            <div class="form-group row">
+              <label for="numberInputField" class="col-sm-3 col-form-label">Число</label>
+              <div class="col-sm-9">
+                <input type="number" id="numberInputField" class="form-control" v-model="numberInput" />
+                <small class="text-mutated">{{ numberInput }}</small>
+              </div>
+            </div>
+            <!-- Тип password -->
+            <div class="form-group row">
+              <label for="passwordInputField" class="col-sm-3 col-form-label">Пароль</label>
+              <div class="col-sm-9">
+                <input type="password" id="passwordInputField" class="form-control" v-model="passwordInput" />
+                <small class="text-mutated">{{ passwordInput }}</small>
+              </div>
+            </div>
+            <!-- Тип range -->
+            <div class="form-group row">
+              <label for="rangeInputField" class="col-sm-3 col-form-label">Диапазон (уровень)</label>
+              <div class="col-sm-9">
+                <input type="range" id="rangeInputField" class="form-control" v-model="rangeInput" />
+                <small class="text-mutated">{{ rangeInput }}</small>
+              </div>
+            </div>
+            <!-- Тип search -->
+            <div class="form-group row">
+              <label for="searchInputField" class="col-sm-3 col-form-label">Поиск</label>
+              <div class="col-sm-9">
+                <input type="search" id="searchInputField" class="form-control" v-model="searchInput" />
+                <small class="text-mutated">{{ searchInput }}</small>
+              </div>
+            </div>
+            <!-- Тип tel -->
+            <div class="form-group row">
+              <label for="telInputField" class="col-sm-3 col-form-label">Телефон</label>
+              <div class="col-sm-9">
+                <input type="tel" id="telInputField" class="form-control" v-model="telInput" />
+                <small class="text-mutated">{{ telInput }}</small>
+              </div>
+            </div>
+            <!-- Тип text -->
+            <div class="form-group row">
+              <label for="textInputField" class="col-sm-3 col-form-label">Текст</label>
+              <div class="col-sm-9">
+                <input type="text" id="textInputField" class="form-control" v-model="textInput" />
+                <small class="text-mutated">{{ textInput }}</small>
+              </div>
+            </div>
+            <!-- Тип time -->
+            <div class="form-group row">
+              <label for="timeInputField" class="col-sm-3 col-form-label">Время</label>
+              <div class="col-sm-9">
+                <input type="time" id="timeInputField" class="form-control" v-model="timeInput" />
+                <small class="text-mutated">{{ timeInput }}</small>
+              </div>
+            </div>
+            <!-- Тип url -->
+            <div class="form-group row">
+              <label for="urlInputField" class="col-sm-3 col-form-label">Ссылка</label>
+              <div class="col-sm-9">
+                <input type="url" id="urlInputField" class="form-control" v-model="urlInput" />
+                <small class="text-mutated">{{ urlInput }}</small>
+              </div>
+            </div>
+            <!-- Тип week -->
+            <div class="form-group row">
+              <label for="weekInputField" class="col-sm-3 col-form-label">Неделя</label>
+              <div class="col-sm-9">
+                <input type="week" id="weekInputField" class="form-control" v-model="weekInput" />
+                <small class="text-mutated">{{ weekInput }}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
