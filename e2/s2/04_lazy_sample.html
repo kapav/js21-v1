@@ -29,6 +29,16 @@
           <input v-model="query1" placeholder="Ищем..." id="searchInput1" type="search" class="form-control" />
           <p class="text-muted"><b>|</b>{{ query1 }}<b>|</b></p>
         </div>
+        <div class="form-group">
+          <label for="searchInput2" class="form-label">Поиск с использованием «ленивой» привязки</label>
+          <input v-model.lazy="query2" placeholder="Ищем..." id="searchInput2" type="search" class="form-control" />
+          <p class="text-muted"><b>|</b>{{ query2 }}<b>|</b></p>
+        </div>
+        <div class="form-group">
+          <label for="searchInput3" class="form-label">Поиск с использованием «ленивой» привязки с модификатором trim</label>
+          <input v-model.lazy.trim="query3" placeholder="Ищем..." id="searchInput3" type="search" class="form-control" />
+          <p class="text-muted"><b>|</b>{{ query3 }}<b>|</b></p>
+        </div>
       </form>
     </div>
   </div>
