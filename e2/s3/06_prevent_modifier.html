@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Модификатор «prevent». Отмена действия браузера</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link href="../bootstrap-4.4.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="../vue.js"></script>
+  <script type="text/javascript">
+    window.onload = function() {
+      const sample = new Vue({
+        el: '#app', //Привязка через CSS-селектор
+        data: {
+          search: ''
+        },
+        //Объект экземпляра Vue.js, содержащий функции, описывающие поведение (как отклик на возбуждаемое событие)
+        methods: {
+          executeSearch: function() {
+            if (this.search) {
+              document.forms[0].submit()
+            } else {
+              alert('Пожалуйста, введите свой запрос')
+            }
+          }
+        }
+      })
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <br />
+    <div id="app">
+      <p>Пример, показывающий отмену действия по умолчанию <code>submit</code> с использованием модификатора <code>prevent</code></p>
+      <form action="#" method="GET" class="form-horizontal">
+        <div class="input-group">
+          <input v-model="search" type="text" class="form-control" />
+          <!-- Аналог метода preventDefault в JS -->
+          <button v-on:click.prevent="executeSearch" type="submit" class="btn btn-primary">Поиск</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

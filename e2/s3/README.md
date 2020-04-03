@@ -5,3 +5,5 @@ Vue.js form binding. Events in Vue.js.
   Event handler params.
   Event propagation.
   Event capture stage.
+  Prevent modifier.
+  Stop modifier.
