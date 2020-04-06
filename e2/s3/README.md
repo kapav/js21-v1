@@ -7,3 +7,7 @@ Vue.js form binding. Events in Vue.js.
   Event capture stage.
   Prevent modifier.
   Stop modifier.
+  Self modifier.
+  Once modifier.
+  Chain modifiers.
+  All modifiers.
