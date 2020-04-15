@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Создание собственных модификаторов</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link href="../bootstrap-4.4.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="../vue.js"></script>
+  <script type="text/javascript">
+    window.onload = function() {
+      //Создание собственного key-модификатора для кнопки F1.
+      //В экземпляре объекта Vue.js мы настраиваем управление
+      //свойством keyCodes с помощью метода config.
+      Vue.config.keyCodes = {
+        f1: 112
+      }
+      const sample = new Vue({
+        el: '#app', //Привязка через CSS-селектор
+        data: {
+          history: ''
+        },
+        methods: {
+          showHelp: function(e) {
+            e.preventDefault()
+            this.history += 'Вывод новой строки помощи на экране.\n'
+          },
+          clearHistory: function() {
+            this.history = ''
+          }
+        }
+      })
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <br />
+    <div id="app" v-on:keydown.f1="showHelp">
+      <form class="form-horizontal">
+        <p>Пример, показывающий использование собственных модификаторов.</p>
+        <!-- При получении фокуса в теге <code>textarea</code> - при нажатии кнопки f1 будет выполнена функция -->
+        <br />
+        <div class="form-group">
+          <label for="logTextarea">Журнал событий (<a href="#" v-on:click="clearHistory">Очистить</a>)</label>
+          <textarea class="form-control" v-model="history" rows="15"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

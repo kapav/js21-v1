@@ -10,55 +10,21 @@
       const sample = new Vue({
         el: '#app', //Привязка через CSS-селектор
         data: {
-          preventHistory: '',
-          captureHistory: '',
-          stopHistory: '',
-          selfHistory: '',
-          onceHistory: ''
+          history: ''
         },
         //Объект экземпляра Vue.js, содержащий функции, описывающие поведение (как отклик на возбуждаемое событие)
         methods: {
-          preventExecuteSearch: function() {
-            this.preventHistory += 'Нажатие кнопки "Поиск".\n'
+          executeSearch: function() {
+            this.history += 'Нажатие кнопки "Поиск".\n'
           },
-          preventParentClick: function() {
-            this.preventHistory += 'Нажатие элемента - непосредственного предка кнопки "Поиск".\n'
+          parentClick: function() {
+            this.history += 'Нажатие элемента - непосредственного предка кнопки "Поиск".\n'
           },
-          preventGrandparentClick: function() {
-            this.preventHistory += 'Нажатие предка второго уровня кнопки "Поиск".\n'
+          grandparentClick: function() {
+            this.history += 'Нажатие предка второго уровня кнопки "Поиск".\n'
           },
-          clearPreventHistory: function() {
-            this.preventHistory = ''
-          },
-          captureExecuteSearch: function() {
-            this.captureHistory += 'Нажатие кнопки "Поиск".\n'
-          },
-          captureParentClick: function() {
-            this.captureHistory += 'Нажатие элемента - непосредственного предка кнопки "Поиск".\n'
-          },
-          captureGrandparentClick: function() {
-            this.captureHistory += 'Нажатие предка второго уровня кнопки "Поиск".\n'
-          },
-          clearCaptureHistory: function() {
-            this.captureHistory = ''
-          },
-          stopExecuteSearch: function() {
-            this.stopHistory += 'Нажатие кнопки "Поиск".\n'
-          },
-          stopParentClick: function() {
-            this.stopHistory += 'Нажатие элемента - непосредственного предка кнопки "Поиск".\n'
-          },
-          stopGrandparentClick: function() {
-            this.stopHistory += 'Нажатие предка второго уровня кнопки "Поиск".\n'
-          },
-          clearStopHistory: function() {
-            this.stopHistory = ''
-          },
-          selfExecuteSearch: function() {
-            this.selfHistory += 'Нажатие кнопки "Поиск".\n'
-          },
-          selfParentClick: function() {
-            this.selfHistory += 'Нажатие элемента - непосредственного предка кнопки "Поиск".\n'
+          clearHistory: function() {
+            this.history = ''
           }
         }
       })
@@ -76,7 +42,7 @@
     <br />
     <div id="app">
       <form class="form-horizontal">
-        <p>Пример, показывающий использование нескольких модификаторов одновременно.</p>
+        <p>Пример, показывающий использование нескольких модификаторов в цепочку одновременно.</p>
         <div v-on:click="grandparentClick" class="grandparent">
           <div class="form-group parent" v-on:click.stop.self="parentClick">
             <button v-on:click="executeSearch" type="button" class="btn btn-primary">Поиск</button>

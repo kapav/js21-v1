@@ -11,3 +11,6 @@ Vue.js form binding. Events in Vue.js.
   Once modifier.
   Chain modifiers.
   All modifiers.
+  Showing the order of key events.
+  Create modifier.
+  Key modifier.
