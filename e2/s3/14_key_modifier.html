@@ -29,9 +29,10 @@
             const code = e.keyCode
             this.history += 'Нажата кнопка: "' + e.key + '" (' + code + ')\n'
           },
-          showHelp: function(e) {
-            e.preventDefault()
-            this.history += 'Вывод новой строки помощи на экране.\n'
+          executeSearch: function(e) {
+            if (this.search) {
+              this.history += 'Кнопка поиска была нажата. Запрос "' + this.search + '".\n'
+            }
           },
           clearHistory: function() {
             this.history = ''
@@ -44,10 +45,13 @@
 <body>
   <div class="container">
     <br />
-    <div id="app" v-on:keydown.f1="showHelp">
-      <form class="form-horizontal">
-        <p>Пример, показывающий использование собственных модификаторов.</p>
-        <!-- При получении фокуса в теге <code>textarea</code> - при нажатии кнопки f1 будет выполнена функция -->
+    <div id="app">
+      <form class="form-horizontal" v-on:submit.prevent>
+        <p>Пример, показывающий обработку события нажатия клавиши с использованием модификатора.</p>
+        <div class="input-group">
+          <input class="form-control" type="search" v-model="search" v-on:keyup="evaluateKey" v-on:keyup.enter="executeSearch" autofocus />
+          <button type="button" v-on:click="executeSearch" class="btn btn-primary">Поиск</button>
+        </div>
         <br />
         <div class="form-group">
           <label for="logTextarea">Журнал событий (<a href="#" v-on:click="clearHistory">Очистить</a>)</label>

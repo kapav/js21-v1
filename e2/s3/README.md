@@ -14,3 +14,5 @@ Vue.js form binding. Events in Vue.js.
   Showing the order of key events.
   Create modifier.
   Key modifier.
+  Mouse event left (mousedown).
+  Mouse event left (click with mouse).
