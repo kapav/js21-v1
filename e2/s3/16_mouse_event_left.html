@@ -43,11 +43,11 @@
   <div class="container">
     <div id="app">
       <form>
-        <p>Пример, показывающий использование модификатора <code>left</code> на событии <code>onmousedown</code>.</p>
+        <p>Пример, показывающий использование модификатора <code>left</code> на событии <code>onclick</code>.</p>
         <div class="col-12">
-          <!-- Используем событие onmousedown для отображения ответа на нажатие элемента div -->
+          <!-- Используем событие click для отображения ответа на нажатие элемента div -->
           <!-- Добавляем модификатор left на событие, который запускает функцию blockClick. -->
-          <div class="block text-center" v-on:mousedown.left="blockClick">
+          <div class="block text-center" v-on:click.left="blockClick">
             Щёлкните левой кнопкой мыши внутри данного блока
           </div>
         </div>

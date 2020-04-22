@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Нажатие на правую клавишу мыши (без отпускания) right mousedown</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link href="../bootstrap-4.4.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="../vue.js"></script>
+  <script type="text/javascript">
+    window.onload = function() {
+      const sample = new Vue({
+        el: '#app', //Привязка через CSS-селектор
+        data: {
+          history: ''
+        },
+        methods: {
+          blockClick: function(e) {
+            this.history += 'Была нажата клавиша мыши!\n'
+            let button = 'Неизвестно'
+            if (e.button === 0) {
+              button = 'Левая'
+            } else if (e.button === 1) {
+              button = 'Средняя'
+            } else if (e.button === 2) {
+              button = 'Правая'
+            }
+            this.history += button + ' кнопка была нажата.\n---\n\n'
+          },
+          clearHistory: function() {
+            this.history = ''
+          }
+        }
+      })
+    }
+  </script>
+  <style>
+    .block {
+      border: 2px solid #808080;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <br />
+    <div id="app">
+      <form>
+        <p>Пример, показывающий использование модификатора <code>middle</code> нажатия на среднюю клавишу мыши.</p>
+        <div class="form-group row">
+          <div class="col-4">
+            <strong><code>onmousedown</code> - событие <em>без</em> модификатора <code>middle</code></strong><br />
+            <div class="block text-center" v-on:mousedown="blockClick">
+              Нажмите на любую (из трёх) клавишу мыши (без отпускания) внутри данного блока
+            </div>
+          </div>
+          <div class="col-4">
+            <strong><code>onmousedown</code> - событие <em>с</em> модификатором <code>middle</code></strong><br />
+            <div class="block text-center" v-on:mousedown.middle="blockClick">
+              Нажмите на среднюю клавишу мыши (без отпускания) внутри данного блока
+            </div>
+          </div>
+          <div class="col-4">
+            <strong><code>click</code> - событие <em>с</em> модификатором <code>middle</code>. </strong>Событие <code>click</code> не поддерживает модификатор <code>middle</code><br />
+            <!-- Событие click не поддерживает модификатор middle -->
+            <div class="block text-center" v-on:click.middle="blockClick">
+              Щёлкните среднею клавишей мыши внутри данного блока
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="logTextarea">Журнал событий (<a href="#" v-on:click="clearHistory">Очистить</a>)</label>
+          <textarea class="form-control" v-model="history" rows="15"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

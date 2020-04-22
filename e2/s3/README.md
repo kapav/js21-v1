@@ -16,3 +16,5 @@ Vue.js form binding. Events in Vue.js.
   Key modifier.
   Mouse event left (mousedown).
   Mouse event left (click with mouse).
+  Middle modifier (mousedown).
+  Event right.
