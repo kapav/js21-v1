@@ -19,3 +19,4 @@ Vue.js form binding. Events in Vue.js.
   Middle modifier (mousedown).
   Event right.
   Right contextmenu.
+  All mouse.
